@@ -190,3 +190,13 @@ svg {
 .fs-600 {
   font-size: var(--fs-600);
 }
+
+
+/* Base */
+body {
+  font-family: var(--ff-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ff-heading);
+}
