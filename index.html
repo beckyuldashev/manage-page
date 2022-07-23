@@ -3,11 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="./images/favicon-32x32.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manage landing page</title>
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.js" defer>
 </head>
 
 <body>
@@ -17,7 +18,13 @@
         <img src="images/logo.svg" alt="logo">
       </a>
 
-      <nav class="primary-nav nav">
+      <button class="mobile-nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+        <img class="icon-hamburger" src="./images/icon-hamburger.svg" alt="" aria-hidden="true">
+        <img class="icon-close d-none" src="./images/icon-close.svg" alt="" aria-hidden="true">
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav nav" id="primary-nav">
         <ul class="nav__list" role="list">
           <li>
             <a href="#">Pricing</a>
@@ -37,7 +44,7 @@
         </ul>
       </nav>
 
-      <button class="btn">Get Started</button>
+      <button class="btn primary-header__btn">Get Started</button>
     </div>
   </header>
 
