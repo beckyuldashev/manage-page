@@ -233,6 +233,14 @@ svg {
   margin-inline: auto;
 }
 
+/* .flow * + * {
+  margin-top: var(--flow-spacer, 3em);
+} */
+
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
+}
+
 .padding-block-900 {
   padding-block: var(--size-900);
 }
@@ -260,6 +268,15 @@ body {
   font-family: var(--ff-body);
   font-size: var(--fs-body);
   color: var(--clr-primary-400);
+}
+
+p:not([class]) {
+  opacity: .7;
+  max-width: 32ch;
+}
+
+p[data-width="wide"] {
+  max-width: 100%;
 }
 
 h1,
@@ -360,7 +377,8 @@ h6 {
     inset: 7rem var(--size-400) auto;
     background-color: var(--clr-neutral-100);
     border-radius: var(--size-100);
-    box-shadow: 0 0 .75em rgba(0, 0, 0, .05)
+    box-shadow: 0 0 .75em rgba(0, 0, 0, .05);
+    z-index: 100;
   }
 
   .primary-header[data-overlay]::before {
