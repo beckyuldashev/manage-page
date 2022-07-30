@@ -233,6 +233,35 @@ svg {
   margin-inline: auto;
 }
 
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+
+@media screen and (min-width: 50em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
+@media (max-width: 50em) {
+  .justify-self-center-md {
+    justify-self: center;
+  }
+}
+
+.vertical-align-center {
+  align-items: center;
+}
+
+
+
 /* .flow * + * {
   margin-top: var(--flow-spacer, 3em);
 } */
@@ -249,17 +278,28 @@ svg {
   padding-block: var(--size-700);
 }
 
-.even-columns {
-  display: grid;
-  gap: 1rem;
+.cta {
+  position: relative;
+  isolation: isolate;
+  text-align: center;
 }
 
-
-@media screen and (min-width: 50em) {
-  .even-columns {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+@media (min-width: 50em) {
+  .cta {
+    text-align: left;
   }
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url(images/bg-tablet-pattern.svg),
+                    url(images/bg-tablet-pattern.svg);
+  background-repeat: no-repeat;
+  background-position: -15rem 0, 60rem -42rem;
+  opacity: 0.1;
 }
 
 
