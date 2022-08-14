@@ -270,6 +270,24 @@ svg {
   margin-top: var(--flow-spacer, 3em);
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-center p {
+  margin-inline: auto;
+}
+
+@media (max-width: 50em) {
+  .text-center-sm-only {
+    text-align: center;
+  }
+
+  .text-center-sm-only p {
+    margin-inline: auto
+  }
+}
+
 .padding-block-900 {
   padding-block: var(--size-900);
 }
@@ -278,6 +296,9 @@ svg {
   padding-block: var(--size-700);
 }
 
+.margin-bottom-700 {
+  margin-bottom: var(--size-700);
+}
 
 /* General styling */
 body {
@@ -439,6 +460,62 @@ input:where([type="text"], [type="email"]) {
   }
 }
 
+/* Numbered list */
+.numbered-items {
+  counter-reset: count;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.numbered-items li {
+  counter-increment: count;
+}
+
+.numbered-items div {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+  column-gap: var(--size-400);
+  position: relative;
+}
+
+@media (max-width: 30em) {
+  .numbered-items__title::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0 -100vw 0 0;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    border-radius: 100vw;
+    background-color: var(--clr-accent-100);
+  }
+}
+
+p.numbered-items__body {
+  grid-column: 1 / -1;
+  max-width: 32ch;
+}
+
+@media (min-width: 30em) {
+  .numbered-items__body {
+    grid-column: 2 / -1;
+  }
+}
+
+.numbered-items div::before {
+  content: '0'counter(count);
+  color: var(--clr-accent-100);
+  background-color: var(--clr-accent-400);
+  font-weight: var(--fw-bold);
+  border-radius: 100vw;
+  
+  height: 47px;
+  padding: 0 var(--size-500);
+  display: flex;
+  align-items: center;
+}
+
 /* Footer */
 .primary-footer {
   --logo-color: var(--clr-accent-100);
@@ -488,13 +565,20 @@ input:where([type="text"], [type="email"]) {
 
 .primary-footer__form {
   grid-area: form;
-  display: grid;
+  display: flex;
   align-content: space-between;
+
+  /* something new */
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .primary-footer__form form {
   display: flex;
   gap: var(--size-200);
+
+  /* something new */
+  align-items: flex-start;
 }
 
 .primary-footer__form .btn {
