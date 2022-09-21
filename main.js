@@ -20,3 +20,20 @@ navToggle.addEventListener('click', (e) => {
     isOpened = true;
   }
 });
+
+// Slider
+const slider = new A11YSlider(document.querySelector('.slider'), {
+  slidesToShow: 1,
+  arrows: false,
+  infinite: true,
+  dots: true,
+  responsive: {
+    576: {
+      slidesToShow: 2,
+      dots: false
+    },
+    960: {
+      slidesToShow: 3,
+    }
+  }
+});
